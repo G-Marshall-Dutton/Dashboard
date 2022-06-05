@@ -38,22 +38,24 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apexcharts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(apexcharts__WEBPACK_IMPORTED_MODULE_0__);
  // Generate chart
 
-var options = {
+var degreeOptions = {
   chart: {
     height: 200,
     type: "radialBar",
     fontFamily: 'Bebas Neue'
   },
-  series: [78.9],
+  series: [78.56],
   colors: ["#5900D7"],
   plotOptions: {
     radialBar: {
       hollow: {
-        margin: 0,
-        size: "70%",
+        margin: 4,
+        size: "75%",
         background: "#F1E9FD"
       },
-      track: {},
+      track: {
+        background: "#F1E9FD"
+      },
       dataLabels: {
         value: {
           color: "#000",
@@ -81,12 +83,77 @@ var options = {
     options: {
       chart: {
         height: 150
+      },
+      plotOptions: {
+        radialBar: {
+          hollow: {
+            size: "65%"
+          }
+        }
       }
     }
   }]
 };
-var chart = new (apexcharts__WEBPACK_IMPORTED_MODULE_0___default())(document.querySelector("#chart"), options);
-chart.render();
+var degreeChart = new (apexcharts__WEBPACK_IMPORTED_MODULE_0___default())(document.querySelector("#degreeChart"), degreeOptions);
+degreeChart.render(); // Skills chart
+
+var skillsOptions = {
+  series: [{
+    name: 'Confidence',
+    data: [80, 80, 65, 100]
+  }],
+  chart: {
+    type: 'bar',
+    height: 350,
+    fontFamily: 'Bebas Neue'
+  },
+  colors: ["#5900D7"],
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: '55%',
+      endingShape: 'rounded'
+    }
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    show: true,
+    width: 2,
+    colors: ['transparent']
+  },
+  xaxis: {
+    categories: ['Wordpress', 'Shopify', 'Laravel', 'Picking up new skills']
+  },
+  yaxis: {
+    title: {
+      text: 'Confidence'
+    },
+    labels: {
+      style: {
+        fontSize: '14px'
+      },
+      formatter: function formatter(value) {
+        return value;
+      }
+    },
+    min: 0,
+    max: 100
+  },
+  fill: {
+    opacity: 1
+  },
+  tooltip: {
+    y: {
+      formatter: function formatter(val) {
+        return val + " / 100";
+      }
+    }
+  }
+};
+var skillsChart = new (apexcharts__WEBPACK_IMPORTED_MODULE_0___default())(document.querySelector("#skillsChart"), skillsOptions);
+skillsChart.render();
 
 /***/ }),
 

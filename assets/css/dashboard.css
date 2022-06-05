@@ -10,6 +10,33 @@ body {
   font-family: "Bebas Neue", cursive;
 }
 
+a {
+  color: unset;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+  -webkit-text-decoration-style: dotted;
+          text-decoration-style: dotted;
+}
+
+button {
+  padding: 8px 18px;
+  border: none;
+  border-radius: 8px;
+  color: #FD8B56;
+  background: #FFF4F0;
+  font-size: 1.2rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+button:hover {
+  transform: translate(-2px, -2px);
+  box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.03);
+  color: #FFF4F0;
+  background: #FD8B56;
+}
+
 .main {
   display: flex;
   flex: 1;
@@ -18,7 +45,7 @@ body {
 
 nav,
 .sidebar {
-  padding: 16px 20px 20px;
+  padding: 52px 26px 20px 26px;
   background-color: white;
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.03);
 }
@@ -29,7 +56,7 @@ nav,
   align-items: center;
 }
 .sidebar .site-logo-container {
-  width: 60px;
+  width: 105px;
 }
 .sidebar .site-logo-container img {
   width: 100%;
@@ -42,6 +69,7 @@ nav,
   flex-direction: column;
   align-items: center;
   margin-top: 40px;
+  padding: 10px;
 }
 .sidebar .sidebar-content ul {
   padding: 0;
@@ -93,13 +121,13 @@ nav,
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 40px;
-  padding: 60px;
+  padding: 40px;
 }
 .dashboard .dashboard-grid .card {
   background-color: white;
   border-radius: 8px;
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.03);
-  transition: 0.3s ease;
+  transition: 0.1s ease;
 }
 .dashboard .dashboard-grid .card:hover {
   transform: translate(-2px, -2px);
@@ -114,6 +142,8 @@ nav,
 .dashboard .dashboard-grid .card.stat-card .icon {
   width: 55px;
   height: 55px;
+  min-width: 55px;
+  min-height: 55px;
   background: #F1E9FD;
   border-radius: 50%;
   display: flex;
@@ -154,7 +184,8 @@ nav,
   position: absolute;
   top: 0px;
   right: 0px;
-  margin: 8px;
+  margin: 14px;
+  line-height: 0px;
   cursor: pointer;
 }
 .dashboard .dashboard-grid .card.card-lg {
@@ -162,6 +193,9 @@ nav,
 }
 .dashboard .dashboard-grid .card.card-md {
   grid-column-end: span 2;
+}
+.dashboard .dashboard-grid .card.card-tall {
+  grid-row-end: span 2;
 }
 .dashboard .dashboard-grid .card .card-head,
 .dashboard .dashboard-grid .card .card-body {
@@ -175,6 +209,10 @@ nav,
 .dashboard .dashboard-grid .card .card-head {
   border-bottom: solid 1px #f8f8f8;
 }
+.dashboard .dashboard-grid .card .card-head p.sub-title {
+  font-size: 12px;
+  color: inherit;
+}
 @media (max-width: 1191px) {
   .dashboard .dashboard-grid {
     grid-template-columns: repeat(2, 1fr);
@@ -183,6 +221,9 @@ nav,
   }
   .dashboard .dashboard-grid .card.card-lg {
     grid-column-end: span 2;
+  }
+  .dashboard .dashboard-grid .card.card-tall {
+    grid-row-end: unset;
   }
 }
 @media (max-width: 575px) {

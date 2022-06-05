@@ -1,23 +1,26 @@
 import ApexCharts from 'apexcharts'
 
 // Generate chart
-var options = {
+var degreeOptions = {
     chart: {
       height: 200,
       type: "radialBar",
       fontFamily: 'Bebas Neue'
     },
   
-    series: [78.9],
+    series: [78.56],
     colors: ["#5900D7"],
     plotOptions: {
       radialBar: {
         hollow: {
-          margin: 0,
-          size: "70%",
+          margin: 4,
+          size: "75%",
           background: "#F1E9FD"
         },
-        track: {},
+        track: {
+          background: "#F1E9FD"
+
+        },
         dataLabels: {
           value: {
             color: "#000",
@@ -47,13 +50,82 @@ var options = {
         options: {
             chart: {
                 height: 150
+            },
+            plotOptions: {
+                radialBar: {
+                  hollow: {
+                    size: "65%",
+                  }
+                }
             }
         },
-    }]
-    
+    }],
+
+
   };
   
-  var chart = new ApexCharts(document.querySelector("#chart"), options);
+  var degreeChart = new ApexCharts(document.querySelector("#degreeChart"), degreeOptions);
   
-  chart.render();
+  degreeChart.render();
   
+
+  // Skills chart
+  var skillsOptions = {
+    series: [{
+    name: 'Confidence',
+    data: [80, 80, 65, 100]
+  }],
+  chart: {
+        type: 'bar',
+        height: 350,
+        fontFamily: 'Bebas Neue'
+  },
+  colors: ["#5900D7"],
+  plotOptions: {
+    bar: {
+      horizontal: false,
+      columnWidth: '55%',
+      endingShape: 'rounded'
+    },
+  },
+  dataLabels: {
+    enabled: false
+  },
+  stroke: {
+    show: true,
+    width: 2,
+    colors: ['transparent']
+  },
+  xaxis: {
+    categories: ['Wordpress', 'Shopify', 'Laravel', 'Picking up new skills'],
+  },
+  yaxis: {
+    title: {
+      text: 'Confidence'
+    },
+    labels: {
+        style: {
+            fontSize: '14px',
+        },
+        formatter: function (value) {
+            return value;
+        }
+    },
+    min: 0,
+    max: 100,
+  },
+  fill: {
+    opacity: 1
+  },
+  tooltip: {
+    y: {
+      formatter: function (val) {
+        return val + " / 100"
+      }
+    }
+  }
+  };
+
+  var skillsChart = new ApexCharts(document.querySelector("#skillsChart"), skillsOptions);
+  skillsChart.render();
+
