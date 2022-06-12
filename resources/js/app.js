@@ -73,17 +73,18 @@ var degreeOptions = {
   var skillsOptions = {
     series: [{
     name: 'Confidence',
-    data: [80, 80, 65, 100]
+    data: [80, 80, 65, 75, 85, 85, 90, 100]
   }],
   chart: {
         type: 'bar',
         height: 350,
-        fontFamily: 'Bebas Neue'
+        fontFamily: 'Bebas Neue',
+        range: 7
   },
   colors: ["#5900D7"],
   plotOptions: {
     bar: {
-      horizontal: false,
+      horizontal: true,
       columnWidth: '55%',
       endingShape: 'rounded'
     },
@@ -97,7 +98,8 @@ var degreeOptions = {
     colors: ['transparent']
   },
   xaxis: {
-    categories: ['Wordpress', 'Shopify', 'Laravel', 'Picking up new skills'],
+    categories: ['Wordpress', 'Shopify', 'Laravel', 'js', 'css', 'html', 'Problem Solving', 'Picking up new skills'],
+    range: 4
   },
   yaxis: {
     title: {

@@ -108,6 +108,22 @@ nav,
     display: flex;
     flex-direction: column;
 
+    // &:not(.animate) {
+        
+    //     .card:nth-child(odd),
+    //     .card:nth-child(even) {
+    //         transition: 1s ease;
+    //     }
+
+
+    //     .card:nth-child(odd) {
+    //         transform: translate(-500%,-500%);
+    //     }
+    //     .card:nth-child(even) {
+    //         transform: translate(500%,-500%);
+    //     }
+    // }
+
     nav {
 
         @media(min-width: 576px){
