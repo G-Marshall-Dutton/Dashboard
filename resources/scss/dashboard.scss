@@ -162,7 +162,12 @@ nav,
             border-radius: 8px;
             -webkit-box-shadow: 1px 2px 3px 1px rgb(0,0,0,0.03);
             box-shadow: 1px 2px 3px 1px rgb(0,0,0,0.03);
-            transition: 0.1s ease;
+            transition: 0.1s ease, opacity 0.8s ease, transform 0.8s ease;
+
+            &:not(.visible){
+                transform: translateX(-66%);
+                opacity: 0;
+            }
 
             &:hover {
                 transform: translate(-2px, -2px);

@@ -127,7 +127,11 @@ nav,
   background-color: white;
   border-radius: 8px;
   box-shadow: 1px 2px 3px 1px rgba(0, 0, 0, 0.03);
-  transition: 0.1s ease;
+  transition: 0.1s ease, opacity 0.8s ease, transform 0.8s ease;
+}
+.dashboard .dashboard-grid .card:not(.visible) {
+  transform: translateX(-66%);
+  opacity: 0;
 }
 .dashboard .dashboard-grid .card:hover {
   transform: translate(-2px, -2px);

@@ -1,5 +1,4 @@
 /******/ (() => { // webpackBootstrap
-/******/ 	"use strict";
 /******/ 	var __webpack_modules__ = ({
 
 /***/ "./node_modules/apexcharts/dist/apexcharts.common.js":
@@ -8,6 +7,7 @@
   \***********************************************************/
 /***/ ((module, exports, __webpack_require__) => {
 
+"use strict";
 var __WEBPACK_AMD_DEFINE_RESULT__;/*!
  * ApexCharts v3.35.3
  * (c) 2018-2022 ApexCharts
@@ -27,12 +27,49 @@ function(){function t(t){t.remember("_draggable",this),this.el=t}t.prototype.ini
 
 /***/ }),
 
+/***/ "./resources/js/animations.js":
+/*!************************************!*\
+  !*** ./resources/js/animations.js ***!
+  \************************************/
+/***/ (() => {
+
+var intersectionObserver = new IntersectionObserver(function (entries, observer) {
+  entries.forEach(function (e) {
+    // When in view
+    if (e.intersectionRatio > 0) {
+      // Animate
+      e.target.classList.add("visible"); // Stop observing
+
+      observer.unobserve(e.target);
+    }
+  });
+});
+var cards = document.querySelectorAll(".card");
+cards.forEach(function (card) {
+  intersectionObserver.observe(card);
+});
+
+/***/ }),
+
 /***/ "./resources/js/app.js":
 /*!*****************************!*\
   !*** ./resources/js/app.js ***!
   \*****************************/
+/***/ ((__unused_webpack_module, __unused_webpack_exports, __webpack_require__) => {
+
+__webpack_require__(/*! ./charts.js */ "./resources/js/charts.js");
+
+__webpack_require__(/*! ./animations.js */ "./resources/js/animations.js");
+
+/***/ }),
+
+/***/ "./resources/js/charts.js":
+/*!********************************!*\
+  !*** ./resources/js/charts.js ***!
+  \********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var apexcharts__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! apexcharts */ "./node_modules/apexcharts/dist/apexcharts.common.js");
 /* harmony import */ var apexcharts__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(apexcharts__WEBPACK_IMPORTED_MODULE_0__);
@@ -111,7 +148,7 @@ var skillsOptions = {
   colors: ["#5900D7"],
   plotOptions: {
     bar: {
-      horizontal: true,
+      horizontal: false,
       columnWidth: '55%',
       endingShape: 'rounded'
     }
@@ -152,7 +189,23 @@ var skillsOptions = {
         return val + " / 100";
       }
     }
-  }
+  },
+  responsive: [{
+    breakpoint: 768,
+    options: {
+      plotOptions: {
+        bar: {
+          horizontal: true
+        }
+      },
+      yaxis: {
+        title: ''
+      },
+      xaxis: {
+        title: 'Confidence'
+      }
+    }
+  }]
 };
 var skillsChart = new (apexcharts__WEBPACK_IMPORTED_MODULE_0___default())(document.querySelector("#skillsChart"), skillsOptions);
 skillsChart.render();
@@ -165,6 +218,7 @@ skillsChart.render();
   \***********************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
@@ -177,6 +231,7 @@ __webpack_require__.r(__webpack_exports__);
   \***************************************/
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
+"use strict";
 __webpack_require__.r(__webpack_exports__);
 // extracted by mini-css-extract-plugin
 
