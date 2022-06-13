@@ -131,6 +131,28 @@ var degreeOptions = {
     }
   }]
 };
+var degreeDarkMode = {
+  colors: ["#48B7FC"],
+  fill: {
+    type: "gradient",
+    gradient: {
+      shade: "dark",
+      type: "vertical",
+      gradientToColors: ["#48B7FC"],
+      stops: [0, 100]
+    }
+  },
+  plotOptions: {
+    radialBar: {
+      hollow: {
+        background: "#EFFAFF"
+      },
+      track: {
+        background: "#212121"
+      }
+    }
+  }
+};
 var degreeChart = new (apexcharts__WEBPACK_IMPORTED_MODULE_0___default())(document.querySelector("#degreeChart"), degreeOptions);
 degreeChart.render(); // Skills chart
 
@@ -163,7 +185,13 @@ var skillsOptions = {
   },
   xaxis: {
     categories: ['Wordpress', 'Shopify', 'Laravel', 'js', 'css', 'html', 'Problem Solving', 'Picking up new skills'],
-    range: 4
+    range: 4,
+    labels: {
+      style: {
+        fontSize: '14px',
+        colors: ['#373d3f']
+      }
+    }
   },
   yaxis: {
     title: {
@@ -209,6 +237,44 @@ var skillsOptions = {
 };
 var skillsChart = new (apexcharts__WEBPACK_IMPORTED_MODULE_0___default())(document.querySelector("#skillsChart"), skillsOptions);
 skillsChart.render();
+var darkModeOptions = {
+  colors: ['#48B7FC'],
+  yaxis: {
+    title: {
+      text: 'Confidence',
+      style: {
+        color: '#e6e3e3'
+      }
+    },
+    labels: {
+      style: {
+        fontSize: '14px',
+        colors: ['#e6e3e3']
+      },
+      formatter: function formatter(value) {
+        return value;
+      }
+    },
+    min: 0,
+    max: 100
+  },
+  xaxis: {
+    labels: {
+      style: {
+        colors: ['#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3', '#e6e3e3']
+      }
+    }
+  }
+};
+var button = document.querySelector('.switch input');
+button.addEventListener('click', function () {
+  var body = document.querySelector('body');
+  body.classList.toggle("dark-mode");
+  var skillOptions = body.classList.contains('dark-mode') ? darkModeOptions : skillsOptions;
+  var degreeOpts = body.classList.contains('dark-mode') ? degreeDarkMode : degreeOptions;
+  skillsChart.updateOptions(skillOptions, true);
+  degreeChart.updateOptions(degreeOpts, true);
+});
 
 /***/ }),
 

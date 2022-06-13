@@ -2,15 +2,58 @@
 
 
 body {
+
+    --bg-primary: #fff;
+    --bg-secondary: #f8f8f8;
+
+    --text-primary: #000;
+
+    --icon-bg-blue: #EFFAFF;
+    --icon-fill-blue: #48B7FC;
+
+    --icon-bg-purple: #F1E9FD;
+    --icon-fill-purple: #5900D7;
+
+    --icon-bg-orange: #FFF4F0;
+    --icon-fill-orange: #FD8B56;
+
+    --icon-bg-pink: #FFEEF2;
+    --icon-fill-pink: #FC4F81;
+
+
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #f8f8f8;
+    background-color: var(--bg-secondary);
     color: #858585;
     font-family: 'Montserrat', sans-serif;
     font-family: 'Roboto Mono', monospace;
 
     font-family: 'Bebas Neue', cursive;
+
+
+
+    &.dark-mode {
+        --bg-primary: #2E2E2E;
+        --bg-secondary: #212121;
+
+        --text-primary: #e6e3e3;
+
+        --icon-bg-blue: #48B7FC;
+        --icon-fill-blue: #EFFAFF;
+    
+        --icon-bg-purple: #5900D7;
+        --icon-fill-purple: #F1E9FD;
+    
+        --icon-bg-orange: #FD8B56;
+        --icon-fill-orange: #FFF4F0;
+    
+        --icon-bg-pink: #FC4F81;
+        --icon-fill-pink: #FFEEF2;
+
+        background: var(--bg-secondary);
+        color: #b4b4b4;
+    }
 
 }
 
@@ -28,17 +71,15 @@ button {
     padding: 8px 18px;
     border: none;
     border-radius: 8px;
-    color: #FD8B56;
-    background: #FFF4F0;
+    color: var(--icon-fill-orange);
+    background: var(--icon-bg-orange);
     font-size: 1.2rem;
     transition: 0.3s ease;
     cursor: pointer;
 
     &:hover {
-        transform: translate(-2px, -2px);
-        box-shadow: 1px 2px 3px 1px rgb(0 0 0 / 3%);
-        color: #FFF4F0;
-        background: #FD8B56;
+        color: var(--icon-bg-orange);
+        background: var(--icon-fill-orange);
     }
 }
 
@@ -51,7 +92,7 @@ button {
 nav,
 .sidebar {
     padding: 52px 26px 20px 26px;
-    background-color: white;
+    background-color: var(--bg-primary);
     -webkit-box-shadow: 1px 2px 3px 1px rgb(0,0,0,0.03);
     box-shadow: 1px 2px 3px 1px rgb(0,0,0,0.03);
 }
@@ -78,10 +119,73 @@ nav,
         align-items: center;
         margin-top: 40px;
         padding: 10px;
+        flex: 1;
 
         ul {
             padding: 0;
         } 
+    }
+
+    /* The switch - the box around the slider */
+    .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+
+        input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+    }
+    
+    /* The slider */
+    .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: .4s;
+        transition: .4s;
+    }
+    
+    input:checked + .slider {
+        background-color: #2196F3;
+    }
+    
+    input:focus + .slider {
+        box-shadow: 0 0 1px #2196F3;
+    }
+    
+    input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+    }
+    
+    /* Rounded sliders */
+    .slider.round {
+        border-radius: 34px;
+    }
+    
+    .slider.round:before {
+        border-radius: 50%;
     }
 
     @media(max-width: 575px){
@@ -158,7 +262,7 @@ nav,
 
 
         .card {
-            background-color: white;
+            background-color: var(--bg-primary);
             border-radius: 8px;
             -webkit-box-shadow: 1px 2px 3px 1px rgb(0,0,0,0.03);
             box-shadow: 1px 2px 3px 1px rgb(0,0,0,0.03);
@@ -186,7 +290,7 @@ nav,
                     height: 55px;
                     min-width: 55px;
                     min-height: 55px;
-                    background: #F1E9FD;
+                    background: var(--icon-bg-purple);
                     border-radius: 50%;
                     display: flex;
 
@@ -194,30 +298,30 @@ nav,
                         width: 25px;
                         height: 25px;
                         margin: auto;
-                        fill: #5900D7;
+                        fill: var(--icon-fill-purple);
                     }
 
                     &.blue{
-                        background-color: #EFFAFF;
+                        background-color: var(--icon-bg-blue);
 
                         svg {
-                            fill: #48B7FC;
+                            fill: var(--icon-fill-blue);
                         }
                     }
 
                     &.orange{
-                        background-color: #FFF4F0;
+                        background-color: var(--icon-bg-orange);
 
                         svg {
-                            fill: #FD8B56;
+                            fill: var(--icon-fill-orange);
                         }
                     }
 
                     &.pink{
-                        background-color: #FFEEF2;
+                        background-color: var(--icon-bg-pink);
 
                         svg {
-                            fill: #FC4F81;
+                            fill: var(--icon-fill-pink);
                         }
                     }
 
@@ -226,7 +330,7 @@ nav,
                 .content {
                     p:first-of-type {
                         font-weight: bold;
-                        color: #000;
+                        color: var(--text-primary);
                         font-size: 1.2rem;
                     }
 
@@ -264,12 +368,12 @@ nav,
 
                 p {
                     font-weight: bold;
-                    color: #000;
+                    color: var(--text-primary);
                 }
             }
 
             .card-head {
-                border-bottom: solid 1px #f8f8f8;
+                border-bottom: solid 1px var(--bg-secondary);
 
                 p.sub-title {
                     font-size: 12px;
